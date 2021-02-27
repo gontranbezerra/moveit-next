@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import { ChallengesContext } from './ChallengesContext';
 
@@ -51,15 +45,15 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
       countdownTimeout = setTimeout(() => {
         setTime(time - 1);
       }, 1000);
-      console.log('countdownTimeout: ', countdownTimeout);
+      // console.log('countdownTimeout: ', countdownTimeout);
     } else if (isActive && time === 0) {
       setHasFinished(true);
       setIsActive(false);
       startNewChallenge();
-      console.log('FIM');
+      // console.log('FIM');
     }
     return () => clearTimeout(countdownTimeout);
-  }, [isActive, time]);
+  }, [isActive, startNewChallenge, time]);
 
   return (
     <CountdownContext.Provider

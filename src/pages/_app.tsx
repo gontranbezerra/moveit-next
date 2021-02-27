@@ -1,17 +1,21 @@
-import { useState } from 'react';
-
 import '../styles/global.css';
 
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+// import { ChallengesProvider } from '../contexts/ChallengesContext';
 // import { CountdownProvider } from '../contexts/CountdownContext';
+import { FunctionComponent, ReactElement, ComponentProps } from 'react';
 
-function MyApp({ Component, pageProps }) {
+interface Props {
+  Component: FunctionComponent;
+  pageProps: ComponentProps<'object'>;
+}
+
+function MyApp({ Component, pageProps }: Props): ReactElement {
   return (
-    <ChallengesProvider>
-      {/* <CountdownProvider> */}
-      <Component {...pageProps} />
-      {/* </CountdownProvider> */}
-    </ChallengesProvider>
+    // <ChallengesProvider>
+    // <CountdownProvider>
+    <Component {...pageProps} />
+    // </CountdownProvider>
+    // </ChallengesProvider>
   );
 }
 
